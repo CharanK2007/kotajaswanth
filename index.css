@@ -1,0 +1,109 @@
+div{
+    color: #000000;
+    font-size: 1em;
+    font-family: sf-ui-display, sans-serif;
+}
+
+.nav-bar{
+    border: 1.5px solid #000000;
+    color: #030303;
+    padding: 12px;
+    background-color: #c89f47;
+    text-align: center;
+}
+
+.nav-bar a:hover{
+    font-size: 1.05em;
+    color: #e10d0d;
+    text-decoration: underline;
+    font-weight: bold;
+    background-color: #734f01;
+}
+
+.cards{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.cards button {
+  position: relative;
+  width: 130px;
+  height: 40px;
+  line-height: 42px;
+  padding: 0;
+  border: none;
+  color: white;
+  background: linear-gradient(
+    0deg,
+    rgba(255, 27, 0, 1) 0%,
+    rgba(251, 75, 2, 1) 100%
+  );
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.cards button:hover {
+  color: #f0094a;
+  background: transparent;
+  box-shadow: none;
+}
+
+.cards button::before,
+.cards button::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 2px;
+  width: 0;
+  background: #f0094a;
+  box-shadow:
+    -1px -1px 5px 0 #fff,
+    7px 7px 20px 0 #0003,
+    4px 4px 5px 0 #0002;
+  transition: 400ms ease all;
+}
+
+.cards button::after {
+  right: auto;
+  top: auto;
+  left: 0;
+  bottom: 0;
+}
+
+.cards button:hover::before,
+.cards button:hover::after {
+  width: 100%;
+  transition: 800ms ease all;
+}
+
+
+.card1{
+    border: solid #000000 1.5px;
+    padding: 12px;
+    text-align: center;
+    margin: auto;
+    width: 200px;
+    border-radius: 20px;
+}
+
+.card2{
+    border: solid #000000 1.5px;
+    padding: 12px;
+    text-align: center;
+    margin: auto;
+    width: 200px;
+    border-radius: 20px;
+}
+
+.card3{
+    border: solid #000000 1.5px;
+    padding: 12px;
+    text-align: center;
+    margin: auto;
+    width: 200px;
+    border-radius: 20px;
+}
+
