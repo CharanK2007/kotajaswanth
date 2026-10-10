@@ -31,6 +31,59 @@ let users=[
 ]
 
 let index=0;
+
+function finishIntro(introOverlay, body) {
+    if (!introOverlay || introOverlay.classList.contains("intro-complete")) {
+        return;
+    }
+
+    introOverlay.classList.add("intro-complete");
+    body.classList.remove("intro-active");
+}
+
+function setupIntro() {
+    const introOverlay = document.getElementById("container");
+    const intro = introOverlay ? introOverlay.querySelector("netflixintro") : null;
+    const body = document.body;
+
+    if (!body) {
+        return;
+    }
+
+    if (!introOverlay || !intro) {
+        body.classList.remove("intro-active");
+        return;
+    }
+
+    if (introOverlay.dataset.introReady === "true") {
+        return;
+    }
+
+    introOverlay.dataset.introReady = "true";
+
+    const onAnimationEnd = (event) => {
+        if (event.target === intro && event.animationName === "zoom-in") {
+            finishIntro(introOverlay, body);
+        }
+    };
+
+    intro.addEventListener("animationend", onAnimationEnd, { once: false });
+    intro.addEventListener("animationcancel", onAnimationEnd, { once: false });
+
+    const animationStyles = window.getComputedStyle(intro);
+    const animationNames = animationStyles.animationName.split(",").map((name) => name.trim());
+    const animationDurations = animationStyles.animationDuration.split(",").map((duration) => duration.trim());
+    const zoomAnimationIndex = animationNames.indexOf("zoom-in");
+
+    if (
+        zoomAnimationIndex === -1 ||
+        animationDurations[zoomAnimationIndex] === "0s" ||
+        window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    ) {
+        finishIntro(introOverlay, body);
+    }
+}
+
 function toggleUser(){
     if(users.length>index){
         index++;
@@ -47,6 +100,18 @@ function toggleUser(){
     document.getElementById("userImage").src="assets/imgk"+(index+1)+".png";
 }
 
+function randomUser(){
+    fetch('https://randomuser.me/api/')
+    .then(response => response.json())
+    .then(data => {
+        const user = data.results[0];
+        document.getElementById("userName").innerHTML = `${user.name.first} ${user.name.last}`;
+        document.getElementById("userGender").innerHTML = `Gender: ${user.gender}`;
+        document.getElementById("userWho").innerHTML = `Who: ${user.name.first} ${user.name.last}`;
+        document.getElementById("userDangerLevel").innerHTML = `Danger level = 0%`;
+        document.getElementById("userDescription").innerHTML = `Description: ${user.email}`;
+        document.getElementById("userImage").src = user.picture.large;
+    });
+}
 
-
-
+setupIntro();

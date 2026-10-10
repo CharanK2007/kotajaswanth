@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="netflix.css">
+    <link rel="stylesheet" href="index.css">
     
 </head>
-<body>
+<body class="intro-active">
 
-    <div id="container">
+    <div id="container" class="intro-overlay" aria-label="Netflix intro">
 <!-- Edit the letter attr to: N, E, T, F, L, I or X -->
    <netflixintro letter="N">
     <div class="helper-1">
@@ -186,16 +186,15 @@
   </netflixintro>
 </div>
 
-    <div class="nav-bar">
-        <a href="https://www.google.com" target="_blank">Home </a>
-        <a href="https://www.leetcode.com" target="_blank">Leet Code</a>
-        <a href="https://www.hackerrank.com" target="_blank">Hacker Rank</a>
-        <a href="https://codeforces.com" target="_blank">Code Forces</a>
-        <a href="https://codechef.com" target="_blank">Code Chef</a>
-        <a href="https://www.codewars.com" target="_blank">Code Wars</a>
-        <a href="https://www.github.com" target="_blank">Github</a>
-    </div>
-
+<div class="nav-bar">
+    <a href="https://www.google.com" target="_blank">Home </a>
+    <a href="https://www.leetcode.com" target="_blank">Leet Code</a>
+    <a href="https://www.hackerrank.com" target="_blank">Hacker Rank</a>
+    <a href="https://codeforces.com" target="_blank">Code Forces</a>
+    <a href="https://codechef.com" target="_blank">Code Chef</a>
+    <a href="https://www.codewars.com" target="_blank">Code Wars</a>
+    <a href="https://www.github.com" target="_blank">Github</a>
+</div>
     <div class="cards">
 
         <div class="card">
@@ -206,10 +205,11 @@
             <p id="userDangerLevel">Danger level = 60%</p>
             <p id="userDescription">Dont make him angry</p>
             <button onclick="toggleUser()">Toggle User</button><br><br>
-            <button >Random User</button>
+            <button onclick="randomUser()">Random User</button>
         </div>
 
     </div>
+
     <script src="index.js"></script>
     
     
