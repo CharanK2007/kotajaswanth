@@ -35,6 +35,8 @@ div{
     grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
     gap: 25px;
     padding: 25px;
+    justify-items: center;
+    align-items: center;
 }
 
 /* Apply styles to card1, card2, card3 */
@@ -45,10 +47,12 @@ div{
     box-sizing: border-box;
     padding: 20px;
     margin: 0;
-    width: 100%;
-
+    width: 300px;
+    height: 600px;
+    align-items: center;
     border: 2px solid transparent;
     border-radius: 12px;
+
 
     color: #e8eaf6;
     text-align: center;
@@ -71,6 +75,7 @@ div{
     position: absolute;
     inset: 8% 0 -8%;
     border-radius: inherit;
+    
 
     background: linear-gradient(
         var(--rotate),
@@ -110,7 +115,6 @@ div{
         --rotate: 360deg;
     }
 }
-
 
 .cards button {
   position: relative;
@@ -165,30 +169,31 @@ div{
 }
 
 
-.card1{
+.card{
     border: solid #000000 1.5px;
     padding: 12px;
     text-align: center;
     margin: auto;
-    width: 200px;
+    width: 100px;
+    height: 600px;
     border-radius: 20px;
 }
 
-.card2{
-    border: solid #000000 1.5px;
-    padding: 12px;
-    text-align: center;
-    margin: auto;
-    width: 200px;
-    border-radius: 20px;
+body {
+	background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+	height: 100vh;
 }
 
-.card3{
-    border: solid #000000 1.5px;
-    padding: 12px;
-    text-align: center;
-    margin: auto;
-    width: 200px;
-    border-radius: 20px;
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
 }
-
